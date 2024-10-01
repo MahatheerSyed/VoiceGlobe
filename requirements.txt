@@ -3,6 +3,8 @@ langdetect==1.0.9
 Flask==3.0.0
 googletrans==4.0.0rc1
 gtts
-pygame
+
 gunicorn
 
+pygame==2.6.1
+sounddevice
