@@ -108,4 +108,36 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+  .container_output {
+    width: 300px;
+    transform: translateY(30%);
+  }
+  #circle {
+    transform: translateX(225%);
+  }
+  .top-section {
+    margin-left: -15px;
+    display: flex;
+    gap: 10px;
+  }
+  .rect {
+    width: 110%;
+    height: 75%;
+    right: -5%;
+    /* background-color: black; */
+  }
+  .bottom-section {
+    width: 160%;
+    transform: translateX(-20%);
+  }
+
+  #user_input_converted {
+    height: inherit;
+  }
+  .output_speech {
+    transform: translateY(290%);
+  }
+  #playAudioIcon {
+    transform: translateX(-20%);
+  }
 }
