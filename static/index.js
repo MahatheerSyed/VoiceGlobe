@@ -246,8 +246,37 @@ function playAudioFromURL(url) {
     })
     .catch((error) => console.error("Error playing audio:", error));
 }
+function output_new() {
+  const audio = new Audio("static/audio/output.mp3");
+  audio.play().catch(function (err) {
+    console.log(err);
+  });
+}
 
-const audio = new Audio("static/audio/output.mp3");
-audio.play().catch(function (err) {
-  console.log(err);
-});
+// Function to observe visibility of the container
+function observeVisibility() {
+  const container = document.getElementById("container_output");
+
+  if (!container) {
+    console.error("Container element not found");
+    return;
+  }
+
+  // Create a new IntersectionObserver
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // The container is visible, play the audio
+        output_new();
+        // Optionally, stop observing after the first play
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  // Start observing the container element
+  observer.observe(container);
+}
+
+// Call the function to start observing the container
+observeVisibility();
