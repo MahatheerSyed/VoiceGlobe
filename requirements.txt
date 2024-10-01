@@ -7,4 +7,4 @@ gtts
 gunicorn
 
 pygame==2.6.1
-sounddevice
+sudo modprobe snd-dummy
