@@ -10,8 +10,10 @@ app = Flask(__name__)
 
 # Initialize Pygame mixer
 
-pygame.mixer.init(devicename="dummy")
 
+os.environ["SDL_AUDIODRIVER"] = "dummy"
+import pygame
+pygame.init()
 # Route to serve the HTML page
 @app.route('/')
 def index():
