@@ -7,4 +7,4 @@ gtts
 gunicorn
 
 pygame==2.6.1
-sudo modprobe snd-dummy
+
