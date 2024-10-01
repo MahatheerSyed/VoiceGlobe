@@ -9,7 +9,8 @@ import pygame
 app = Flask(__name__)
 
 # Initialize Pygame mixer
-pygame.mixer.init()
+
+pygame.mixer.init(devicename="dummy")
 
 # Route to serve the HTML page
 @app.route('/')
