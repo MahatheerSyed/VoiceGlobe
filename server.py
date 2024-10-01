@@ -17,14 +17,9 @@ def index():
     return render_template('index.html')
 
 # Function to play text-to-speech audio and save it
+# Function to convert text to speech and save it without playing audio
 def text_to_speech(text, language='en', file_path=None):
     try:
-        # Stop the mixer and unload the previous audio file to release it
-        if pygame.mixer.music.get_busy():
-            pygame.mixer.music.stop()
-
-        pygame.mixer.music.unload()
-
         # Create a gTTS object and convert the text
         tts = gTTS(text=text, lang=language, slow=False)
 
@@ -42,12 +37,10 @@ def text_to_speech(text, language='en', file_path=None):
             with open(file_path, 'wb') as f:
                 f.write(mp3_fp.read())
 
-            # Load and play the audio file in the background
-            pygame.mixer.music.load(file_path)
-            pygame.mixer.music.play()
-
+        # No need to load and play the audio file with pygame
     except Exception as e:
         print(f"Error: {e}")
+
 
 # API endpoint to handle translation requests
 @app.route('/translate', methods=['POST'])
