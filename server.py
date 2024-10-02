@@ -9,15 +9,12 @@ import pygame
 app = Flask(__name__)
 
 # Initialize Pygame mixer
+pygame.mixer.init()
 
-
-os.environ["SDL_AUDIODRIVER"] = "dummy"
-import pygame
-pygame.init()
 # Route to serve the HTML page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
 
 # Function to play text-to-speech audio and save it
 # Function to convert text to speech and save it without playing audio
