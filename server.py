@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Route to serve the HTML page
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return render_template('index.html')
 
 # Function to convert text to speech and save it without playing audio
 def text_to_speech(text, language='en', file_path=None):
@@ -23,11 +23,15 @@ def text_to_speech(text, language='en', file_path=None):
             mp3_fp = BytesIO()
             tts.write_to_fp(mp3_fp)
             mp3_fp.seek(0)  # Reset the buffer pointer
-            
+
             # Create directory if it doesn't exist
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
-            # Save the file
+            # Delete the previous audio file if it exists
+            if os.path.exists(file_path):
+                os.remove(file_path)
+
+            # Save the new audio file
             with open(file_path, 'wb') as f:
                 f.write(mp3_fp.read())
 
@@ -61,7 +65,7 @@ def translate():
             # Define the path to save the audio file
             audio_path = os.path.join(app.static_folder, 'audio', 'output.mp3')
 
-            # Save the audio file
+            # Save the audio file (with previous file deletion)
             text_to_speech(translation_out, target_lang, audio_path)
 
             # Respond with the translation and audio URL
