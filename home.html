@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoiceGlobe</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/static/images/vspic1.webp" />
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <link rel="stylesheet" href="/static/css/responsive.css" />
+  </head>
+  <body>
+    <nav>
+      <h2 onclick="location.reload()">VoiceGlobe</h2>
+      <img src="/static/images/vspic1.webp" alt="" id="image_icon_top" />
+    </nav>
+    <div class="container">
+      <div class="navigation">
+        <ul>
+          <li class="list active" data-active="0">
+            <a href="#">
+              <span class="icon" id="home">
+                <abbr title="home"> <i class="fa-solid fa-house"></i></abbr>
+              </span>
+            </a>
+          </li>
+          <li class="list" data-active="1">
+            <a href="#">
+              <span class="icon" id="feedback_user1">
+                <abbr title="feedback"
+                  ><i class="fa-solid fa-comments"></i
+                ></abbr>
+              </span>
+            </a>
+          </li>
+          <li class="list" data-active="2">
+            <a href="#">
+              <span class="icon" id="mic">
+                <abbr title="trabslation assistant"
+                  ><i class="fa-solid fa-microphone"></i
+                ></abbr>
+              </span>
+            </a>
+          </li>
+          <li class="list" data-active="3">
+            <a href="#">
+              <span class="icon">
+                <!-- <i class="fa-solid fa-magnifying-glass" id="textinput-logo"></i> -->
+                <i class="fa-solid fa-keyboard" id="textinput-logo"></i>
+              </span>
+            </a>
+          </li>
+          <li class="list" data-active="4">
+            <a href="#">
+              <span class="icon" id="info">
+                <abbr title="about the voiceGlobe">
+                  <i class="fa-solid fa-circle-info"></i
+                ></abbr>
+              </span>
+            </a>
+          </li>
+          <div class="active-tab"></div>
+        </ul>
+      </div>
+    </div>
+    <div class="container2">
+      <div class="home_text" id="home_text">
+        <img src="/static/images/vspic1.webp" alt="" />
+        <h1>welcome to VoiceGlobe</h1>
+        <h3 class="typing"></h3>
+      </div>
+      <!-- =======================================input taking from user=========================================== -->
+      <div class="translation" id="translation">
+        <h4 id="ask_user">enter the language from which to translate</h4>
+        <div class="animated-icon">
+          <div
+            class="bar"
+            style="background-color: #3498db; margin-left: -60px"
+          ></div>
+          <div
+            class="bar"
+            style="background-color: #e74c3c; margin-left: -20px"
+          ></div>
+          <div
+            class="bar"
+            style="background-color: #f1c40f; margin-left: 20px"
+          ></div>
+          <div
+            class="bar"
+            style="background-color: #2eb869; margin-left: 60px"
+          ></div>
+        </div>
+        <div class="speechtotext">
+          <h5 id="convert_text"></h5>
+        </div>
+      </div>
+      <!-- =============================================about page========================================== -->
+      <div class="about_page" id="about_page">
+        <div class="para1">
+          <h2>VoiceGlobe</h2>
+          <img src="/static/images/vspic1.webp" alt="" />
+        </div>
+        <p id="1stpara">
+          VoiceGlobe is an advanced language translation service that seamlessly
+          translates spoken and written content between any languages. Whether
+          you're communicating in
+          <span> English, Urdu, Japanese, or any other language,</span>
+          VoiceGlobe is equipped to handle it. The platform uses sophisticated
+          algorithms and vast language databases to accurately translate text or
+          speech from one language to another, making it an
+          <span>invaluable tool for breaking down language barriers.</span>
+        </p>
+        <p>
+          What sets VoiceGlobe apart is its ability to
+          <span>translate from any language to any other language </span>
+          without limitations. This means that users can input text or speech in
+          one language and receive a translation in another language of their
+          choice, no matter how uncommon or rare the languages might be.
+          VoiceGlobe’s versatility ensures that you can
+          <span
+            >communicate with anyone, anywhere, without worrying about language
+            differences.</span
+          >
+        </p>
+        <p>
+          In addition to its broad language capabilities, VoiceGlobe is designed
+          to be user-friendly and accessible. Whether you're using it for
+          personal communication, business transactions, or academic purposes,
+          the platform delivers fast, accurate translations with just a few
+          clicks or voice commands.
+          <span
+            >With VoiceGlobe, the world truly becomes your global community , as
+            it bridges the gap between diverse languages and cultures
+            effortlessly.</span
+          >
+        </p>
+        <div class="tech-container">
+          <h1>languages used in project</h1>
+
+          <div class="techonolgy">
+            <div class="first">
+              <h1>java script</h1>
+              <i class="fa-brands fa-square-js"></i>
+            </div>
+            <div class="first">
+              <h1>python</h1>
+              <i class="fa-brands fa-python"></i>
+            </div>
+            <div class="first">
+              <h1>html</h1>
+              <i class="fa-brands fa-html5"></i>
+            </div>
+            <div class="first">
+              <h1>css</h1>
+              <i class="fa-brands fa-css3-alt"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ===========================feedback======================================================= -->
+      <div class="feedback_from1 feedback-form" id="feedback_from1">
+        <form
+          action=""
+          id="feedback_form"
+          class="form"
+          name="submit-to-google-sheet"
+        >
+          <h1>feedback</h1>
+          <input
+            type="text"
+            placeholder="Enter your name"
+            name="Name"
+            required
+          />
+          <input
+            type="e-mial"
+            placeholder="Enter your E-Mail "
+            name="EMail"
+            required
+          />
+          <input
+            name="Message"
+            placeholder="Enter your Feedback"
+            id="feedback"
+          />
+          <button type="submit">submit</button>
+          <div class="social">
+            <h2 class="heading">follow us</h2>
+            <div class="icons_social">
+              <a
+                href="https://www.linkedin.com/in/sd-mahatheer-ba37992b1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                target="_blank"
+                ><i class="fa-brands fa-linkedin"></i
+              ></a>
+              <a href="https://github.com/MahatheerSyed" target="_blank"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a href="https://m.facebook.com/" target="_blank"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a href="https://x.com/MahatheerS18779?s=09" target="_blank"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- ===========================output display================================================= -->
+      <div class="container_output" id="container_output">
+        <div class="top-section">
+          <div class="rect">
+            <p id="user_input_given">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint
+              delectus quasi voluptates sequi earum soluta assumenda id tempora
+              doloribus, nisi temporibus, eos natus? Doloremque aliquam officiis
+              dignissimos. Libero, blanditiis cumque!
+            </p>
+          </div>
+          <div id="circle"><i class="fas fa-user"></i></div>
+        </div>
+        <div class="bottom-section">
+          <img src="/static/images/vspic1.webp" alt="" class="circle_bottom" />
+
+          <div class="rect_bottom">
+            <div class="user_languages">
+              <div class="suroce_lang">English</div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                  d="M406.6 374.6l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224l-293.5 0 41.4-41.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288l293.5 0-41.4 41.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z"
+                />
+              </svg>
+              <div class="dest_lang">Japanese</div>
+            </div>
+            <p id="user_input_converted">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit
+              quibusdam facilis voluptatum illum nisi eius, modi aliquam?
+              Consectetur, voluptatibus quod cupiditate perferendis impedit
+              debitis ipsam, non repudiandae hic unde quia.
+            </p>
+            <div class="output_speech">
+              <abbr title="Feedback"
+                ><i class="fa-regular fa-thumbs-up" id="like"></i
+              ></abbr>
+              <abbr title="Copy">
+                <i class="fa-regular fa-copy" onclick="copyText()"></i
+              ></abbr>
+              <abbr title="listen">
+                <i
+                  class="fa-solid"
+                  id="playAudioIcon"
+                  onclick="playAudioFromURL('/static/audio/output.mp3')"
+                  >🔊</i
+                ></abbr
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-input" id="text-input">
+        <h1>translate now</h1>
+        <form action="" id="translation-form">
+          <div class="selection">
+            <select name="sourceLanguage" id="sourceLanguage">
+              <option value="afrikaans">Afrikaans</option>
+              <option value="albanian">Albanian</option>
+              <option value="amharic">Amharic</option>
+              <option value="arabic">Arabic</option>
+              <option value="armenian">Armenian</option>
+              <option value="azerbaijani">Azerbaijani</option>
+              <option value="basque">Basque</option>
+              <option value="belarusian">Belarusian</option>
+              <option value="bengali">Bengali</option>
+              <option value="bosnian">Bosnian</option>
+              <option value="bulgarian">Bulgarian</option>
+              <option value="catalan">Catalan</option>
+              <option value="cebuano">Cebuano</option>
+              <option value="chichewa">Chichewa</option>
+              <option value="chinese (simplified)">Chinese (Simplified)</option>
+              <option value="chinese (traditional)">
+                Chinese (Traditional)
+              </option>
+              <option value="corsican">Corsican</option>
+              <option value="croatian">Croatian</option>
+              <option value="czech">Czech</option>
+              <option value="danish">Danish</option>
+              <option value="dutch">Dutch</option>
+              <option value="english">English</option>
+              <option value="esperanto">Esperanto</option>
+              <option value="estonian">Estonian</option>
+              <option value="filipino">Filipino</option>
+              <option value="finnish">Finnish</option>
+              <option value="french">French</option>
+              <option value="frisian">Frisian</option>
+              <option value="galician">Galician</option>
+              <option value="georgian">Georgian</option>
+              <option value="german">German</option>
+              <option value="greek">Greek</option>
+              <option value="gujarati">Gujarati</option>
+              <option value="haitian creole">Haitian Creole</option>
+              <option value="hausa">Hausa</option>
+              <option value="hawaiian">Hawaiian</option>
+              <option value="hebrew">Hebrew</option>
+              <option value="hindi">Hindi</option>
+              <option value="hmong">Hmong</option>
+              <option value="hungarian">Hungarian</option>
+              <option value="icelandic">Icelandic</option>
+              <option value="igorot">Igorot</option>
+              <option value="indonesian">Indonesian</option>
+              <option value="irish">Irish</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="javanese">Javanese</option>
+              <option value="kannada">Kannada</option>
+              <option value="kazakh">Kazakh</option>
+              <option value="khmer">Khmer</option>
+              <option value="korean">Korean</option>
+              <option value="kurdish (kurmanji)">Kurdish (Kurmanji)</option>
+              <option value="kyrgyz">Kyrgyz</option>
+              <option value="lao">Lao</option>
+              <option value="latin">Latin</option>
+              <option value="latvian">Latvian</option>
+              <option value="lithuanian">Lithuanian</option>
+              <option value="luxembourgish">Luxembourgish</option>
+              <option value="macedonian">Macedonian</option>
+              <option value="malagasy">Malagasy</option>
+              <option value="malay">Malay</option>
+              <option value="malayalam">Malayalam</option>
+              <option value="maltese">Maltese</option>
+              <option value="maori">Maori</option>
+              <option value="marathi">Marathi</option>
+              <option value="mongolian">Mongolian</option>
+              <option value="myanmar (burmese)">Myanmar (Burmese)</option>
+              <option value="nepali">Nepali</option>
+              <option value="norwegian">Norwegian</option>
+              <option value="nyanja">Nyanja</option>
+              <option value="pashto">Pashto</option>
+              <option value="persian">Persian</option>
+              <option value="polish">Polish</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="punjabi">Punjabi</option>
+              <option value="romanian">Romanian</option>
+              <option value="russian">Russian</option>
+              <option value="samoan">Samoan</option>
+              <option value="sanskrit">Sanskrit</option>
+              <option value="serbian">Serbian</option>
+              <option value="sesotho">Sesotho</option>
+              <option value="shona">Shona</option>
+              <option value="sindhi">Sindhi</option>
+              <option value="sinhala">Sinhala</option>
+              <option value="slovak">Slovak</option>
+              <option value="slovenian">Slovenian</option>
+              <option value="somali">Somali</option>
+              <option value="spanish">Spanish</option>
+              <option value="sundanese">Sundanese</option>
+              <option value="swahili">Swahili</option>
+              <option value="swedish">Swedish</option>
+              <option value="tajik">Tajik</option>
+              <option value="tamil">Tamil</option>
+              <option value="telugu">Telugu</option>
+              <option value="thai">Thai</option>
+              <option value="turkish">Turkish</option>
+              <option value="ukrainian">Ukrainian</option>
+              <option value="urdu">Urdu</option>
+              <option value="uzbek">Uzbek</option>
+              <option value="vietnamese">Vietnamese</option>
+              <option value="welsh">Welsh</option>
+              <option value="xhosa">Xhosa</option>
+              <option value="yiddish">Yiddish</option>
+              <option value="yoruba">Yoruba</option>
+              <option value="zulu">Zulu</option>
+            </select>
+            <i class="fa-solid fa-arrows-left-right"></i>
+            <select name="targetLanguage" id="targetLanguage">
+              <option value="afrikaans">Afrikaans</option>
+              <option value="albanian">Albanian</option>
+              <option value="amharic">Amharic</option>
+              <option value="arabic">Arabic</option>
+              <option value="armenian">Armenian</option>
+              <option value="azerbaijani">Azerbaijani</option>
+              <option value="basque">Basque</option>
+              <option value="belarusian">Belarusian</option>
+              <option value="bengali">Bengali</option>
+              <option value="bosnian">Bosnian</option>
+              <option value="bulgarian">Bulgarian</option>
+              <option value="catalan">Catalan</option>
+              <option value="cebuano">Cebuano</option>
+              <option value="chichewa">Chichewa</option>
+              <option value="chinese (simplified)">Chinese (Simplified)</option>
+              <option value="chinese (traditional)">
+                Chinese (Traditional)
+              </option>
+              <option value="corsican">Corsican</option>
+              <option value="croatian">Croatian</option>
+              <option value="czech">Czech</option>
+              <option value="danish">Danish</option>
+              <option value="dutch">Dutch</option>
+              <option value="english">English</option>
+              <option value="esperanto">Esperanto</option>
+              <option value="estonian">Estonian</option>
+              <option value="filipino">Filipino</option>
+              <option value="finnish">Finnish</option>
+              <option value="french">French</option>
+              <option value="frisian">Frisian</option>
+              <option value="galician">Galician</option>
+              <option value="georgian">Georgian</option>
+              <option value="german">German</option>
+              <option value="greek">Greek</option>
+              <option value="gujarati">Gujarati</option>
+              <option value="haitian creole">Haitian Creole</option>
+              <option value="hausa">Hausa</option>
+              <option value="hawaiian">Hawaiian</option>
+              <option value="hebrew">Hebrew</option>
+              <option value="hindi">Hindi</option>
+              <option value="hmong">Hmong</option>
+              <option value="hungarian">Hungarian</option>
+              <option value="icelandic">Icelandic</option>
+              <option value="igorot">Igorot</option>
+              <option value="indonesian">Indonesian</option>
+              <option value="irish">Irish</option>
+              <option value="italian">Italian</option>
+              <option value="japanese">Japanese</option>
+              <option value="javanese">Javanese</option>
+              <option value="kannada">Kannada</option>
+              <option value="kazakh">Kazakh</option>
+              <option value="khmer">Khmer</option>
+              <option value="korean">Korean</option>
+              <option value="kurdish (kurmanji)">Kurdish (Kurmanji)</option>
+              <option value="kyrgyz">Kyrgyz</option>
+              <option value="lao">Lao</option>
+              <option value="latin">Latin</option>
+              <option value="latvian">Latvian</option>
+              <option value="lithuanian">Lithuanian</option>
+              <option value="luxembourgish">Luxembourgish</option>
+              <option value="macedonian">Macedonian</option>
+              <option value="malagasy">Malagasy</option>
+              <option value="malay">Malay</option>
+              <option value="malayalam">Malayalam</option>
+              <option value="maltese">Maltese</option>
+              <option value="maori">Maori</option>
+              <option value="marathi">Marathi</option>
+              <option value="mongolian">Mongolian</option>
+              <option value="myanmar (burmese)">Myanmar (Burmese)</option>
+              <option value="nepali">Nepali</option>
+              <option value="norwegian">Norwegian</option>
+              <option value="nyanja">Nyanja</option>
+              <option value="pashto">Pashto</option>
+              <option value="persian">Persian</option>
+              <option value="polish">Polish</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="punjabi">Punjabi</option>
+              <option value="romanian">Romanian</option>
+              <option value="russian">Russian</option>
+              <option value="samoan">Samoan</option>
+              <option value="sanskrit">Sanskrit</option>
+              <option value="serbian">Serbian</option>
+              <option value="sesotho">Sesotho</option>
+              <option value="shona">Shona</option>
+              <option value="sindhi">Sindhi</option>
+              <option value="sinhala">Sinhala</option>
+              <option value="slovak">Slovak</option>
+              <option value="slovenian">Slovenian</option>
+              <option value="somali">Somali</option>
+              <option value="spanish">Spanish</option>
+              <option value="sundanese">Sundanese</option>
+              <option value="swahili">Swahili</option>
+              <option value="swedish">Swedish</option>
+              <option value="tajik">Tajik</option>
+              <option value="tamil">Tamil</option>
+              <option value="telugu">Telugu</option>
+              <option value="thai">Thai</option>
+              <option value="turkish">Turkish</option>
+              <option value="ukrainian">Ukrainian</option>
+              <option value="urdu">Urdu</option>
+              <option value="uzbek">Uzbek</option>
+              <option value="vietnamese">Vietnamese</option>
+              <option value="welsh">Welsh</option>
+              <option value="xhosa">Xhosa</option>
+              <option value="yiddish">Yiddish</option>
+              <option value="yoruba">Yoruba</option>
+              <option value="zulu">Zulu</option>
+            </select>
+          </div>
+          <textarea
+            id="transcribedText"
+            placeholder="Enter text You Want To Convert"
+          ></textarea>
+          <button type="button" id="buttontranslate">Translate</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="/static/js/index.js"></script>
+    <script src="/static/js/speech.js"></script>
+    <script src="/static/js/textinput.js"></script>
+  </body>
+</html>
