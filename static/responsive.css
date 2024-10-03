@@ -140,4 +140,7 @@
   #playAudioIcon {
     transform: translateX(-20%);
   }
+  .loader {
+    transform: translateX(-25%);
+  }
 }
