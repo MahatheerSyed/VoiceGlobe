@@ -289,7 +289,8 @@ function observeVisibility() {
 }
 
 // Call the function to start observing the container
-observeVisibility();
+
+// Call the function to start observing the container
 
 // ==================remove previous input=========================
 document
@@ -311,4 +312,3 @@ document
       textArea.value = "";
     });
   });
-
