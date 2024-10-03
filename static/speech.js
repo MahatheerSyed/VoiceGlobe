@@ -104,6 +104,8 @@ document.getElementById("mic").addEventListener("click", function () {
   function sendToServer(inputs) {
     if (inputs.length === 3) {
       const [sourceLanguage, targetLanguage, transcribedText] = inputs;
+      document.getElementById("translation").style.display = "none";
+      document.querySelector(".loader").style.display = "block";
       const backgroundAudio = new Audio("static/audio/pop2.mp3");
       backgroundAudio
         .play()
@@ -180,10 +182,12 @@ document.getElementById("mic").addEventListener("click", function () {
         })
         .then((data) => {
           console.log("Server response:", data);
+          document.querySelector(".loader").style.display = "none";
           if (userInputConvertedElem) {
             if (data.translation) {
               userInputConvertedElem.textContent = data.translation;
               document.getElementById("convert_text").innerText = " ";
+              playAudioFromURL("static/audio/output.mp3");
             } else {
               console.error("Translation Error:", data.error);
               userInputConvertedElem.textContent =
