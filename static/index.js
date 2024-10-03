@@ -290,3 +290,25 @@ function observeVisibility() {
 
 // Call the function to start observing the container
 observeVisibility();
+
+// ==================remove previous input=========================
+document
+  .getElementById("textinput-logo")
+  .addEventListener("click", function () {
+    // Select all elements with the class 'options'
+    const optionElements = document.querySelectorAll(".options");
+
+    // Loop through all option elements and deselect all options
+    optionElements.forEach(function (options) {
+      for (let i = 0; i < options.options.length; i++) {
+        options.options[i].selected = false;
+      }
+    });
+
+    // Clear the text in all text areas with the class 'textArea'
+    const textAreas = document.querySelectorAll(".transcribedText");
+    textAreas.forEach(function (textArea) {
+      textArea.value = "";
+    });
+  });
+
