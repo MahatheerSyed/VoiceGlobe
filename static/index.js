@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // When the page is fully loaded, hide the loader and show the content
+  document.body.classList.remove("loading");
+});
+
+window.addEventListener("load", function () {
+  // Hide the loader once everything (including images) is loaded
+  document.querySelector(".loader").style.display = "none";
+});
+
 // Select necessary elements
 const list = document.querySelectorAll(".list");
 const activeTab = document.querySelector(".active-tab");
