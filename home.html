@@ -273,7 +273,7 @@
         <h1>translate now</h1>
         <form action="" id="translation-form">
           <div class="selection">
-            <select name="sourceLanguage" id="sourceLanguage">
+            <select name="sourceLanguage" id="sourceLanguage" class="options">
               <option value="afrikaans">Afrikaans</option>
               <option value="albanian">Albanian</option>
               <option value="amharic">Amharic</option>
@@ -383,7 +383,7 @@
               <option value="zulu">Zulu</option>
             </select>
             <i class="fa-solid fa-arrows-left-right"></i>
-            <select name="targetLanguage" id="targetLanguage">
+            <select name="targetLanguage" id="targetLanguage" class="options">
               <option value="afrikaans">Afrikaans</option>
               <option value="albanian">Albanian</option>
               <option value="amharic">Amharic</option>
@@ -498,8 +498,20 @@
             class="transcribedText"
             placeholder="Enter text You Want To Convert"
           ></textarea>
-          <button type="button" id="buttontranslate"  onclick="observeVisibility();">Translate</button>
+          <button
+            type="button"
+            id="buttontranslate"
+            onclick="observeVisibility();"
+          >
+            Translate
+          </button>
         </form>
+      </div>
+    </div>
+    <div class="loader">
+      <img src="/static/images/vspic1.webp" alt="" />
+      <div class="load">
+        <div class="slide"></div>
       </div>
     </div>
 
