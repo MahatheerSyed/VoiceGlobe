@@ -21,7 +21,8 @@ document
     function sendToServer(inputs) {
       if (inputs.length === 3) {
         const [sourceLanguage1, targetLanguage1, transcribedText1] = inputs;
-
+        document.getElementById("text-input").style.display = "none";
+        document.querySelector(".loader").style.display = "block";
         console.log("Sending to server:", {
           sourceLanguage1,
           targetLanguage1,
@@ -65,6 +66,7 @@ document
           })
           .then((data) => {
             console.log("Server response:", data);
+            document.querySelector(".loader").style.display = "none";
             if (userInputConvertedElem) {
               if (data.translation) {
                 userInputConvertedElem.textContent = data.translation;
