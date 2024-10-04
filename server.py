@@ -60,8 +60,11 @@ def translate():
 
         # Perform further translation processing if needed
         translation_out = perform_translation(transcribed_texts)
+       
 
         if translation_out:
+            if os.path.exists("static/audio/output.mp3"):
+                os.remove("static/audio/output.mp3")
             # Define the path to save the audio file
             audio_path = os.path.join(app.static_folder, 'audio', 'output.mp3')
 
@@ -81,4 +84,7 @@ def translate():
         return jsonify({"error": f"Translation failed: {e}"})
 
 if __name__ == "__main__":
+    # Check if the audio file exists before trying to delete it
+    if os.path.exists("static/audio/output.mp3"):
+        os.remove("static/audio/output.mp3")
     app.run(debug=True)
