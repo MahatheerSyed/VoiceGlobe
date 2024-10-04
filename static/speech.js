@@ -1,3 +1,4 @@
+let latestAudioURL = "";
 document.getElementById("mic").addEventListener("click", function () {
   const backgroundAudio = new Audio("static/audio/pop1.mp3");
   backgroundAudio
@@ -187,7 +188,6 @@ document.getElementById("mic").addEventListener("click", function () {
             if (data.translation) {
               userInputConvertedElem.textContent = data.translation;
               document.getElementById("convert_text").innerText = " ";
-              playAudioFromURL("static/audio/output.mp3");
             } else {
               console.error("Translation Error:", data.error);
               userInputConvertedElem.textContent =
@@ -200,6 +200,13 @@ document.getElementById("mic").addEventListener("click", function () {
           // Show .container_output and hide .translation
           document.querySelector(".container_output").style.display = "flex";
           document.querySelector(".translation").style.display = "none";
+          if (data.audio_url) {
+            latestAudioURL = data.audio_url; // Store the latest audio URL
+            console.log("Audio URL saved and played:", latestAudioURL);
+
+            // Play the newly created audio
+            playAudioFromURL(latestAudioURL);
+          }
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -243,15 +250,15 @@ document.getElementById("mic").addEventListener("click", function () {
     return languages[language] || "Language not found";
   }
 });
-function handleTranslationResponse(response) {
-  const translationElement = document.getElementById("translation");
-  translationElement.textContent = response.translation;
-
-  // If the play_audio flag is set and audio_url is provided, play the audio
-  if (response.play_audio && response.audio_url) {
-    const audioPlayer = document.getElementById("audioPlayer");
-    audioPlayer.src = response.audio_url;
-    audioPlayer.hidden = false; // Show the audio player
-    audioPlayer.play(); // Automatically play the audio once
+document.getElementById("playAudioIcon").addEventListener("click", function () {
+  if (latestAudioURL) {
+    console.log("Playing latest audio:", latestAudioURL);
+    playAudioFromURL(latestAudioURL); // Play the stored latest audio URL
+  } else {
+    console.error("No audio available to play.");
   }
+});
+function playAudioFromURL(url) {
+  const audio = new Audio(url);
+  audio.play().catch((error) => console.error("Error playing audio:", error));
 }
