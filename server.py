@@ -4,6 +4,7 @@ from googletrans import Translator
 from gtts import gTTS
 from io import BytesIO
 import os
+import uuid  # To generate unique file names
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-# Function to convert text to speech and save it without playing audio
+# Function to convert text to speech and save it with a unique file name
 def text_to_speech(text, language='en', file_path=None):
     try:
         # Create a gTTS object and convert the text to speech
@@ -26,10 +27,6 @@ def text_to_speech(text, language='en', file_path=None):
 
             # Create directory if it doesn't exist
             os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
-            # Delete the previous audio file if it exists
-            if os.path.exists(file_path):
-                os.remove(file_path)
 
             # Save the new audio file
             with open(file_path, 'wb') as f:
@@ -60,21 +57,21 @@ def translate():
 
         # Perform further translation processing if needed
         translation_out = perform_translation(transcribed_texts)
-       
 
         if translation_out:
-            if os.path.exists("static/audio/output.mp3"):
-                os.remove("static/audio/output.mp3")
+            # Generate a unique file name using UUID
+            unique_filename = f"output_{uuid.uuid4().hex}.mp3"
+            
             # Define the path to save the audio file
-            audio_path = os.path.join(app.static_folder, 'audio', 'output.mp3')
+            audio_path = os.path.join(app.static_folder, 'audio', unique_filename)
 
-            # Save the audio file (with previous file deletion)
+            # Save the audio file
             text_to_speech(translation_out, target_lang, audio_path)
 
-            # Respond with the translation and audio URL
+            # Respond with the translation and unique audio URL
             return jsonify({
                 "translation": translation_out,
-                "audio_url": url_for('static', filename='audio/output.mp3')
+                "audio_url": url_for('static', filename=f'audio/{unique_filename}')
             })
         else:
             return jsonify({"error": "Translation failed or input was invalid."})
@@ -84,7 +81,9 @@ def translate():
         return jsonify({"error": f"Translation failed: {e}"})
 
 if __name__ == "__main__":
-    # Check if the audio file exists before trying to delete it
-    if os.path.exists("static/audio/output.mp3"):
-        os.remove("static/audio/output.mp3")
+    # Ensure the audio directory exists
+    audio_dir = os.path.join(app.static_folder, 'audio')
+    if not os.path.exists(audio_dir):
+        os.makedirs(audio_dir)
+    
     app.run(debug=True)
