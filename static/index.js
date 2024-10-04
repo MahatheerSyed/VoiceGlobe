@@ -1,13 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // When the page is fully loaded, hide the loader and show the content
-  document.body.classList.remove("loading");
-});
-
-window.addEventListener("load", function () {
-  // Hide the loader once everything (including images) is loaded
-  document.querySelector(".loader").style.display = "none";
-});
-
 // Select necessary elements
 const list = document.querySelectorAll(".list");
 const activeTab = document.querySelector(".active-tab");
@@ -64,8 +54,8 @@ var typed = new Typed(".typing", {
     "Which language would you like",
     "to translate into ?",
   ],
-  typeSpeed: 50,
-  backSpeed: 90,
+  typeSpeed: 20,
+  backSpeed: 20,
   loop: true, // Optional: To loop the typing effect
   showCursor: false,
 });
@@ -97,8 +87,14 @@ document.addEventListener("DOMContentLoaded", function () {
       "-=0.3"
     );
 });
+// When the page is fully loaded, hide the loader and show the content
+document.body.classList.remove("loading");
 
-//   // Selectors for different sections
+window.addEventListener("load", function () {
+  // Hide the loader once everything (including images) is loaded
+  document.querySelector(".loader").style.display = "none";
+});
+// Selectors for different sections
 const home = document.getElementById("home");
 const home_text = document.getElementById("home_text");
 
@@ -228,69 +224,6 @@ function copyText() {
       console.error("Failed to copy text: ", error);
     });
 }
-
-document.getElementById("playAudioIcon").addEventListener("click", function () {
-  const audio = new Audio("/audio");
-  audio.play().catch((error) => console.error("Error playing audio:", error));
-});
-function playAudioFromURL(url) {
-  fetch(url)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok: " + response.statusText);
-      }
-      return response.arrayBuffer();
-    })
-    .then((arrayBuffer) => {
-      const audioContext = new (window.AudioContext ||
-        window.webkitAudioContext)();
-      return audioContext.decodeAudioData(arrayBuffer);
-    })
-    .then((decodedData) => {
-      const audioContext = new (window.AudioContext ||
-        window.webkitAudioContext)();
-      const source = audioContext.createBufferSource();
-      source.buffer = decodedData;
-      source.connect(audioContext.destination);
-      source.start(0);
-    })
-    .catch((error) => console.error("Error playing audio:", error));
-}
-function output_new() {
-  const audio = new Audio("static/audio/output.mp3");
-  audio.play().catch(function (err) {
-    console.log(err);
-  });
-}
-
-// Function to observe visibility of the container
-function observeVisibility() {
-  const container = document.getElementById("container_output");
-
-  if (!container) {
-    console.error("Container element not found");
-    return;
-  }
-
-  // Create a new IntersectionObserver
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        // The container is visible, play the audio
-        output_new();
-        // Optionally, stop observing after the first play
-        observer.unobserve(entry.target);
-      }
-    });
-  });
-
-  // Start observing the container element
-  observer.observe(container);
-}
-
-// Call the function to start observing the container
-
-// Call the function to start observing the container
 
 // ==================remove previous input=========================
 document
