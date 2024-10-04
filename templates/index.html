@@ -19,9 +19,9 @@
     />
     <link rel="icon" href="/static/images/vspic1.webp" />
     <link rel="stylesheet" href="/static/index.css" />
-    <link rel="stylesheet" href="/static/responsive.css" />
+    <link rel="stylesheet" href="/static/responsive.css" /> 
   </head>
-  <body id="loaderbody">
+  <body>
     <nav>
       <h2 onclick="location.reload()">VoiceGlobe</h2>
       <img src="/static/images/vspic1.webp" alt="" id="image_icon_top" />
@@ -261,7 +261,7 @@
                 <i
                   class="fa-solid"
                   id="playAudioIcon"
-                  onclick="playAudioFromURL('/static/audio/output.mp3')"
+                  onclick="playAudioFromURL(url)"
                   >🔊</i
                 ></abbr
               >
@@ -269,12 +269,11 @@
           </div>
         </div>
       </div>
-      <!-- ================text input taking================================================= -->
       <div class="text-input" id="text-input">
         <h1>translate now</h1>
         <form action="" id="translation-form">
           <div class="selection">
-            <select name="sourceLanguage" id="sourceLanguage">
+            <select name="sourceLanguage" id="sourceLanguage" class="options">
               <option value="afrikaans">Afrikaans</option>
               <option value="albanian">Albanian</option>
               <option value="amharic">Amharic</option>
@@ -315,10 +314,8 @@
               <option value="hawaiian">Hawaiian</option>
               <option value="hebrew">Hebrew</option>
               <option value="hindi">Hindi</option>
-              <option value="hmong">Hmong</option>
               <option value="hungarian">Hungarian</option>
               <option value="icelandic">Icelandic</option>
-              <option value="igorot">Igorot</option>
               <option value="indonesian">Indonesian</option>
               <option value="irish">Irish</option>
               <option value="italian">Italian</option>
@@ -346,7 +343,6 @@
               <option value="myanmar (burmese)">Myanmar (Burmese)</option>
               <option value="nepali">Nepali</option>
               <option value="norwegian">Norwegian</option>
-              <option value="nyanja">Nyanja</option>
               <option value="pashto">Pashto</option>
               <option value="persian">Persian</option>
               <option value="polish">Polish</option>
@@ -379,12 +375,11 @@
               <option value="vietnamese">Vietnamese</option>
               <option value="welsh">Welsh</option>
               <option value="xhosa">Xhosa</option>
-              <option value="yiddish">Yiddish</option>
               <option value="yoruba">Yoruba</option>
               <option value="zulu">Zulu</option>
             </select>
             <i class="fa-solid fa-arrows-left-right"></i>
-            <select name="targetLanguage" id="targetLanguage">
+            <select name="targetLanguage" id="targetLanguage" class="options">
               <option value="afrikaans">Afrikaans</option>
               <option value="albanian">Albanian</option>
               <option value="amharic">Amharic</option>
@@ -399,10 +394,6 @@
               <option value="catalan">Catalan</option>
               <option value="cebuano">Cebuano</option>
               <option value="chichewa">Chichewa</option>
-              <option value="chinese (simplified)">Chinese (Simplified)</option>
-              <option value="chinese (traditional)">
-                Chinese (Traditional)
-              </option>
               <option value="corsican">Corsican</option>
               <option value="croatian">Croatian</option>
               <option value="czech">Czech</option>
@@ -425,10 +416,8 @@
               <option value="hawaiian">Hawaiian</option>
               <option value="hebrew">Hebrew</option>
               <option value="hindi">Hindi</option>
-              <option value="hmong">Hmong</option>
               <option value="hungarian">Hungarian</option>
               <option value="icelandic">Icelandic</option>
-              <option value="igorot">Igorot</option>
               <option value="indonesian">Indonesian</option>
               <option value="irish">Irish</option>
               <option value="italian">Italian</option>
@@ -438,7 +427,6 @@
               <option value="kazakh">Kazakh</option>
               <option value="khmer">Khmer</option>
               <option value="korean">Korean</option>
-              <option value="kurdish (kurmanji)">Kurdish (Kurmanji)</option>
               <option value="kyrgyz">Kyrgyz</option>
               <option value="lao">Lao</option>
               <option value="latin">Latin</option>
@@ -456,7 +444,6 @@
               <option value="myanmar (burmese)">Myanmar (Burmese)</option>
               <option value="nepali">Nepali</option>
               <option value="norwegian">Norwegian</option>
-              <option value="nyanja">Nyanja</option>
               <option value="pashto">Pashto</option>
               <option value="persian">Persian</option>
               <option value="polish">Polish</option>
@@ -489,13 +476,13 @@
               <option value="vietnamese">Vietnamese</option>
               <option value="welsh">Welsh</option>
               <option value="xhosa">Xhosa</option>
-              <option value="yiddish">Yiddish</option>
               <option value="yoruba">Yoruba</option>
               <option value="zulu">Zulu</option>
             </select>
           </div>
           <textarea
             id="transcribedText"
+            class="transcribedText"
             placeholder="Enter text You Want To Convert"
           ></textarea>
           <button type="button" id="buttontranslate">Translate</button>
@@ -511,8 +498,8 @@
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
-    <script src="/static/speech.js"></script>
     <script src="/static/index.js"></script>
+    <script src="/static/speech.js"></script>
     <script src="/static/textinput.js"></script>
   </body>
 </html>
