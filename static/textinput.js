@@ -1,35 +1,35 @@
+// let latestAudioURL = ""; // Variable to store the latest audio URL
+
 document
   .getElementById("buttontranslate")
   .addEventListener("click", function () {
     console.log("clicked");
-    // Show .translation and .speechtotext during input
+
+    // Show loader and hide other elements during input
     document.querySelector(".text-input").style.display = "flex";
     document.querySelector(".speechtotext").style.display = "none";
     document.querySelector(".container_output").style.display = "none";
 
-    // Update #ask_user content with the current prompt
+    // Gather input values
     const sourceLanguage1 = document.getElementById("sourceLanguage").value;
     const targetLanguage1 = document.getElementById("targetLanguage").value;
     const transcribedText1 = document.getElementById("transcribedText").value;
 
-    // Store the values in the array
+    // Store the values in an array
     let inputs = [sourceLanguage1, targetLanguage1, transcribedText1];
 
-    // Call the sendToServer function with inputs
+    // Call the function to send inputs to the server
     sendToServer(inputs);
 
     function sendToServer(inputs) {
       if (inputs.length === 3) {
         const [sourceLanguage1, targetLanguage1, transcribedText1] = inputs;
+
+        // Show loader and hide text input
         document.getElementById("text-input").style.display = "none";
         document.querySelector(".loader").style.display = "block";
-        console.log("Sending to server:", {
-          sourceLanguage1,
-          targetLanguage1,
-          transcribedText1,
-        });
 
-        // Display sourceLanguage and targetLanguage in their respective elements
+        // Display the selected languages
         const sourceLangElem = document.querySelector(".suroce_lang");
         const destLangElem = document.querySelector(".dest_lang");
         const userInputGivenElem = document.getElementById("user_input_given");
@@ -38,19 +38,15 @@ document
         );
 
         if (sourceLangElem) sourceLangElem.textContent = sourceLanguage1;
-        else console.error("Error: .source_lang element not found.");
-
         if (destLangElem) destLangElem.textContent = targetLanguage1;
-        else console.error("Error: .dest_lang element not found.");
-
         if (userInputGivenElem)
           userInputGivenElem.textContent = transcribedText1;
-        else console.error("Error: #user_input_given element not found.");
 
         const requestPayload = {
           texts: [sourceLanguage1, targetLanguage1, transcribedText1],
         };
 
+        // Send the request to the server
         fetch("/translate", {
           method: "POST",
           headers: {
@@ -66,7 +62,10 @@ document
           })
           .then((data) => {
             console.log("Server response:", data);
+
+            // Hide loader after receiving response
             document.querySelector(".loader").style.display = "none";
+
             if (userInputConvertedElem) {
               if (data.translation) {
                 userInputConvertedElem.textContent = data.translation;
@@ -75,20 +74,28 @@ document
                 userInputConvertedElem.textContent =
                   "Translation failed or not supported.";
               }
-            } else {
-              console.error("Error: #user_input_converted element not found.");
             }
 
-            // Show .container_output and hide .translation
+            // Show the output container
             document.querySelector(".container_output").style.display = "flex";
             document.querySelector(".text-input").style.display = "none";
+
+            // If audio URL is returned, store it for playback and play it immediately
+            if (data.audio_url) {
+              latestAudioURL = data.audio_url; // Store the latest audio URL
+              console.log("Audio URL saved and played:", latestAudioURL);
+
+              // Play the newly created audio
+              playAudioFromURL(latestAudioURL);
+            }
           })
           .catch((error) => {
             console.error("Error:", error);
             if (userInputConvertedElem) {
               userInputConvertedElem.textContent = "Error occurred.";
             }
-            // Show .container_output and hide .translation
+
+            // Show the output container even in case of error
             document.querySelector(".container_output").style.display = "flex";
             document.querySelector(".text-input").style.display = "none";
           });
@@ -101,9 +108,15 @@ document
           userInputConvertedElem.textContent =
             "Error: Exactly 3 inputs are required.";
         }
-        // Show .container_output and hide .translation
+        // Show output container and hide text input
         document.querySelector(".container_output").style.display = "flex";
         document.querySelector(".text-input").style.display = "none";
       }
     }
   });
+
+// Function to play audio from a URL
+function playAudioFromURL(url) {
+  const audio = new Audio(url);
+  audio.play().catch((error) => console.error("Error playing audio:", error));
+}
