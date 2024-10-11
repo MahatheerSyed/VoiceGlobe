@@ -245,3 +245,16 @@ document
       textArea.value = "";
     });
   });
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbwQxbaiv-SB506TK0mxzVHaDHCX_h_2rEVg8fFHkG8Wpp7smPv2LTSvr83dQZPkIJwu6g/exec";
+const form = document.forms["submit-to-google-sheet"];
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  fetch(scriptURL, { method: "POST", body: new FormData(form) }).then(
+    (response) => {
+      alert(" Message Sucessfully Sent");
+    },
+    5000
+  );
+  form.reset().catch((error) => console.error("Error!", error.message));
+});
