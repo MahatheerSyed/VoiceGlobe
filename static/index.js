@@ -245,16 +245,36 @@ document
       textArea.value = "";
     });
   });
+
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbwQxbaiv-SB506TK0mxzVHaDHCX_h_2rEVg8fFHkG8Wpp7smPv2LTSvr83dQZPkIJwu6g/exec";
 const form = document.forms["submit-to-google-sheet"];
+const loader = document.querySelector(".loader");
+const feedbackForm = document.querySelector(".feedback-form");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  fetch(scriptURL, { method: "POST", body: new FormData(form) }).then(
-    (response) => {
-      alert(" Message Sucessfully Sent");
-    },
-    5000
-  );
-  form.reset().catch((error) => console.error("Error!", error.message));
+
+  // Show loader and hide the form
+  loader.style.display = "block";
+  feedbackForm.style.display = "none";
+
+  fetch(scriptURL, { method: "POST", body: new FormData(form) })
+    .then((response) => {
+      alert("Message Successfully Sent");
+
+      // Hide loader and show form after submission
+      loader.style.display = "none";
+      feedbackForm.style.display = "block";
+    })
+    .catch((error) => {
+      console.error("Error!", error.message);
+
+      // Hide loader and show form in case of error
+      loader.style.display = "none";
+      feedbackForm.style.display = "block";
+    });
+
+  form.reset();
 });
+
