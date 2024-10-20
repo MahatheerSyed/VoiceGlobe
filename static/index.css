@@ -576,17 +576,25 @@ nav img {
 }
 .selection select {
   width: 150px;
-  height: 20px;
-  padding: 2px 2px 2px 5px;
-  border-radius: 15px;
-  border: 1px solid black;
+  height: 30px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #000000f1;
+  color: white;
 }
 .selection select option {
   border-radius: 15px;
   height: auto;
 }
 .selection select option:checked {
-  background-color: black;
+  background-color: white;
   color: white;
 }
 .selection select option:hover {
