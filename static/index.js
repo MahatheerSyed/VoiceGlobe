@@ -47,19 +47,6 @@ window.onresize = () => {
 };
 
 // Typed.js initialization
-var typed = new Typed(".typing", {
-  strings: [
-    "Your Language Assistant",
-    "Translate Your Voice",
-    "Which language would you like",
-    "to translate into ?",
-  ],
-  typeSpeed: 20,
-  backSpeed: 20,
-  loop: true, // Optional: To loop the typing effect
-  showCursor: false,
-});
-
 document.addEventListener("DOMContentLoaded", function () {
   var tl = gsap.timeline();
   tl.from("nav", {
