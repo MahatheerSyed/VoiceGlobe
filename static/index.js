@@ -182,7 +182,9 @@ feedback_user.addEventListener("click", function () {
     ease: "power2.out",
   });
 });
-
+function opentranslate() {
+  document.getElementById("mic").click();
+}
 mic.addEventListener("click", function () {
   translation.style.display = "flex";
   home_text.style.display = "none";
