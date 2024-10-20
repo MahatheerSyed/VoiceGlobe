@@ -130,34 +130,90 @@ nav img {
   justify-content: center;
 }
 
+
 .home_text {
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-transform: capitalize;
-  letter-spacing: 1.8px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 50px 10px;
-  white-space: nowrap;
-  gap: 10px;
-  /* display: none; */
+  scale: 0.9;
+  margin-top: 4%;
+}
+.home_text h1 {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 2px;
+}
+.home_text h1 #on1 {
+  font-size: 40px;
+  color: rgba(0, 0, 0, 0.9);
+}
+.home_text h1 #on2 {
+  font-size: 30px;
+  display: flex;
+  margin-left: 25%;
+  color: rgba(0, 0, 0, 0.8);
+}
+.home_text h1 #on3 {
+  font-size: 25px;
+  display: flex;
+  margin-left: 5%;
+  color: rgba(0, 0, 0, 0.5);
 }
 .home_text img {
-  width: 50px;
-  height: inherit;
-  filter: brightness(200%) contrast(150%) opacity(80%);
-  margin-left: 170px;
+  width: 200px;
+  height: 200px;
+  background-color: rgba(0, 0, 0, 0.243);
+  padding: 14px;
+  border-radius: 10px;
+  border: dotted 0.5px rgba(0, 0, 0, 0.5);
 }
-.home_text h3 {
-  font-size: 18px;
-  margin-left: 90px;
-  margin-top: 10px;
-  color: rgba(0, 0, 0, 0.643);
+.hometext_part {
+  display: flex;
+  justify-content: space-between;
+  gap: 0px;
+}
+.home_text button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px;
+  padding: 10px;
+  text-transform: capitalize;
+  font-weight: 700;
+  background-color: white;
+  border: 1px solid black;
+  margin-left: 10%;
+  position: relative;
+  overflow-x: hidden;
+  cursor: pointer;
+  z-index: 1;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Correct usage of transition */
 }
 
-.home_text h1 {
-  font-size: 35px;
+.home_text button span {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  position: absolute;
+  left: -100%;
+  z-index: -1;
+  transition: left 0.3s ease-in-out; /* Apply transition to the span */
 }
 
+.home_text button:hover span {
+  left: 0;
+}
+
+.home_text button:hover {
+  color: white;
+  transform: scale(1.06);
+  box-shadow: 2px 2px 10px black;
+}
 /* Ensure home_text is hidden initially */
 /* ============================= input taking from user========================================= */
 /* Translation Section Styles */
