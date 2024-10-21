@@ -6,7 +6,7 @@ const activeTab = document.querySelector(".active-tab");
 const calculatePositions = () => {
   const width = document.querySelector(".navigation").offsetWidth;
   const itemWidth = width / list.length;
-  const tabWidth = 90; // Adjust this based on your design
+  const tabWidth = 100; // Adjust this based on your design
   return Array.from(
     { length: list.length },
     (_, i) => i * itemWidth + (itemWidth - tabWidth) / 2
