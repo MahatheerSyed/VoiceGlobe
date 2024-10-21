@@ -12,6 +12,7 @@
     scale: 0.8;
     text-wrap: nowrap;
     margin-top: 30%;
+    margin-left: -50%;
     gap: 40px;
   }
   .home_text .hometext_part {
